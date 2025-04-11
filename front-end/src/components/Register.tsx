@@ -8,12 +8,38 @@ const { useToken } = theme;
 const { useBreakpoint } = Grid;
 const { Text, Title, Link } = Typography;
 
+//Create the user by using Web API
+import axios from 'axios';
+import { api } from '../common/http-common';
+
 const Register = () => {
   const { token } = useToken();
   const screens = useBreakpoint();
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    console.log("Received values of form: ", values.name, values.password, values.email);
+    const username = values.name;
+    const password = values.password;
+    const email = values.email;
+    const url = api.uri+'users';
+    
+    axios.post(url, {
+      "username": username,
+      "password": password,
+      "email": email
+    })
+    .then((res) => {
+      if (res.status === 201) {
+        console.log('Registration successful');
+      }
+    })
+    .catch((error) => {
+      console.error('Registration failed:', error);
+      if (error.response) {
+        // Handle different error statuses
+        console.error('Server responded with:', error.response.data);
+      }
+    });
   };
 
   const styles = {
@@ -69,9 +95,9 @@ const Register = () => {
             <path d="M4.92505 17.6H14.525V27.2001H4.92505V17.6Z" fill="white" />
           </svg>
 
-          <Title style={styles.title}>Sign up</Title>
+          <Title style={styles.title}>Register</Title>
           <Text style={styles.text}>
-            Join us! Create an account to get started.
+            Blog System - Create an account to get started.
           </Text>
         </div>
         <Form

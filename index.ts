@@ -3,6 +3,8 @@ import Router, {RouterContext} from "koa-router";
 import logger from "koa-logger";
 import json from "koa-json";
 import serve from 'koa-static';
+import cors from 'koa-cors';
+
 import { router as articles } from "./routers/articles";
 import { router as users } from "./routers/users";
 // import { router as testBA } from "./routers/special";
@@ -21,6 +23,7 @@ router.get('/api/v1', welcomeAPI);
 
 app.use(logger());
 app.use(json());
+app.use(cors());
 app.use(serve("./docs"));
 app.use(router.routes());
 app.use(articles.routes());

@@ -17,6 +17,7 @@ const koa_router_1 = __importDefault(require("koa-router"));
 const koa_logger_1 = __importDefault(require("koa-logger"));
 const koa_json_1 = __importDefault(require("koa-json"));
 const koa_static_1 = __importDefault(require("koa-static"));
+const cors_1 = __importDefault(require("@koa/cors"));
 const articles_1 = require("./routers/articles");
 const users_1 = require("./routers/users");
 // import { router as testBA } from "./routers/special";
@@ -31,6 +32,7 @@ const welcomeAPI = (ctx, next) => __awaiter(void 0, void 0, void 0, function* ()
 router.get('/api/v1', welcomeAPI);
 app.use((0, koa_logger_1.default)());
 app.use((0, koa_json_1.default)());
+app.use((0, cors_1.default)());
 app.use((0, koa_static_1.default)("./docs"));
 app.use(router.routes());
 app.use(articles_1.router.routes());
