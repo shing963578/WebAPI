@@ -9,35 +9,11 @@ const icons_1 = require("@ant-design/icons");
 const { useToken } = antd_1.theme;
 const { useBreakpoint } = antd_1.Grid;
 const { Text, Title, Link } = antd_1.Typography;
-//Create the user by using Web API
-const axios_1 = __importDefault(require("axios"));
-const http_common_1 = require("../common/http-common");
 const Register = () => {
     const { token } = useToken();
     const screens = useBreakpoint();
     const onFinish = (values) => {
-        console.log("Received values of form: ", values.name, values.password, values.email);
-        const username = values.name;
-        const password = values.password;
-        const email = values.email;
-        const url = http_common_1.api.uri + 'users';
-        axios_1.default.post(url, {
-            "username": username,
-            "password": password,
-            "email": email
-        })
-            .then((res) => {
-            if (res.status === 201) {
-                console.log('Registration successful');
-            }
-        })
-            .catch((error) => {
-            console.error('Registration failed:', error);
-            if (error.response) {
-                // Handle different error statuses
-                console.error('Server responded with:', error.response.data);
-            }
-        });
+        console.log("Received values of form: ", values);
     };
     const styles = {
         container: {
@@ -81,9 +57,9 @@ const Register = () => {
             <path d="M4.92505 17.6H14.525V27.2001H4.92505V17.6Z" fill="white"/>
           </svg>
 
-          <Title style={styles.title}>Register</Title>
+          <Title style={styles.title}>Sign up</Title>
           <Text style={styles.text}>
-            Blog System - Create an account to get started.
+            Join us! Create an account to get started.
           </Text>
         </div>
         <antd_1.Form name="normal_signup" onFinish={onFinish} layout="vertical" requiredMark="optional">

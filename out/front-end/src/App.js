@@ -14,8 +14,6 @@ const Articles_1 = __importDefault(require("./components/Articles"));
 const DetailArticle_1 = __importDefault(require("./components/DetailArticle"));
 const Login_1 = __importDefault(require("./components/Login"));
 const Register_1 = __importDefault(require("./components/Register"));
-const Error404_1 = __importDefault(require("./components/Error404"));
-const newArticle_1 = __importDefault(require("./components/newArticle"));
 const { Header, Content, Footer } = antd_1.Layout;
 const App = () => {
     return (<react_router_dom_1.BrowserRouter>
@@ -25,10 +23,9 @@ const App = () => {
                         <react_router_dom_1.Link to="/">Home</react_router_dom_1.Link>
                         <react_router_dom_1.Link to="/dashboard">Dashboard</react_router_dom_1.Link>
                         <react_router_dom_1.Link to="/about">About</react_router_dom_1.Link>
-                        <react_router_dom_1.Link to="/article">Article</react_router_dom_1.Link>
-                        <react_router_dom_1.Link to="/newarticle">New Article</react_router_dom_1.Link>
-                        <react_router_dom_1.Link to="/login">Login</react_router_dom_1.Link>
-                        <react_router_dom_1.Link to="/register">Register</react_router_dom_1.Link>
+                        <react_router_dom_1.Link to="/Article">Article</react_router_dom_1.Link>
+                        <react_router_dom_1.Link to="/Login">Login</react_router_dom_1.Link>
+                        <react_router_dom_1.Link to="/Register">Register</react_router_dom_1.Link>
                     </antd_1.Space>
                 </nav>
             </Header>
@@ -38,13 +35,10 @@ const App = () => {
                     <react_router_dom_1.Route index element={<Home_1.default />}/>
                     <react_router_dom_1.Route path="/about" element={<About_1.default />}/>
                     <react_router_dom_1.Route path="/dashboard" element={<Dashboard_1.default />}/>
-                    <react_router_dom_1.Route path="/login" element={<Login_1.default />}/>
-                    <react_router_dom_1.Route path="/register" element={<Register_1.default />}/>
                     <react_router_dom_1.Route path="/article" element={<Articles_1.default />}/>
                     <react_router_dom_1.Route path="/a/:id" element={<DetailArticle_1.default />}/>
-                    <react_router_dom_1.Route path="/newarticle" element={<newArticle_1.default />}/>
-                    <react_router_dom_1.Route path="*" element={<Error404_1.default />}/>
-                    
+                    <react_router_dom_1.Route path="/login" element={<Login_1.default />}/>
+                    <react_router_dom_1.Route path="/register" element={<Register_1.default />}/>
                 </react_router_dom_1.Routes>
             </Content>
 

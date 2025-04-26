@@ -4,8 +4,8 @@ const config = {
     host: "localhost",
     port: 5432,
     user: "postgres",
-    password: "postgres", //Update this parameter
-    database: "postgres", //Update this parameter
+    password: "webapi2025",
+    database: "webapilab",
     connection_limit: 100
 };
 exports.default = config;

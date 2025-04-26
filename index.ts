@@ -3,7 +3,7 @@ import Router, {RouterContext} from "koa-router";
 import logger from "koa-logger";
 import json from "koa-json";
 import serve from 'koa-static';
-import cors from 'koa-cors';
+import cors from '@koa/cors';
 
 import { router as articles } from "./routers/articles";
 import { router as users } from "./routers/users";
